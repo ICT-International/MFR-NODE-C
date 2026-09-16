@@ -33,30 +33,29 @@ MNCM4 (Hardware Revision R4-0)
 				* Diagnostics: 		    - Not Supported
 				* Automatic Cell tower time synchronisation for MQTT message preparation (UTC Time)
 			Commands:
-				* modem_apn_			- Access Point Name (APN), E.g: modem apn iot.1nce.net
-				* modem usr_			- APN Username (blank default).
-				* modem pwd_			- APN Password (blank default).
-				* modem auth_           - Modem auth: 0 = none, 1 = pap, 2 = chap, 3 = pap or chap (0 default).
-				* modem oper_			- Operator Code MCC+MNC. Needs to be set for correct operation, E.g. Telstra 4G Network: modem oper 50501
-				* opmode_	            - change operation mode, 0 = CAT M1, 1 = Cat NB1, 2 = Both.
+				* modem apn				- Access Point Name (APN) 												E.g: "modem apn iot.1nce.net" for 1NCE ISP
+				* modem usr				- APN Username (blank default)
+				* modem pwd				- APN Password (blank default)
+				* modem auth            - Modem auth: 0 = none, 1 = pap, 2 = chap, 3 = pap or chap (0 default)  E.g: "modem auth 0" for auth none.
+				* modem oper			- Operator Code MCC+MNC. Needs to be set for correct operation 			E.g: "modem oper 50501" for Telstra 4G/CAT-M1 Network.
+				* opmode 	            - change operation mode, 0 = CAT M1, 1 = Cat NB1, 2 = Both	 			E.g: "opmode 1" for Cat NB1.
 		
 		MQTT Supported Features and Settings (command and function):
-			* mqtt host_ 			- MQTT Hostname
-			* mqtt port_ 			- MQTT Port Number (default 1883 or 8883)
-			* mqtt user_ 			- MQTT Username
-			* mqtt pass_ 			- MQTT Password
-			* mqtt client_ 			- MQTT ClientID
-			* mqtt topic_ 			- MQTT Topic-Publish
-			* mqtt qos_             - MQTT QoS Level (0 or 1 only, 0 default)
-			* mqtt tls_             - Use MQTT over TLS (MQTTS) 1 = enable, 0 = disable
-			* mqtt json_            - Report in JSON rather than CSV, 1 = enable JSON mode, 0 = disable and use .csv mode.
+			* mqtt host 			- MQTT Hostname
+			* mqtt port 			- MQTT Port Number (default 1883 or 8883)
+			* mqtt user 			- MQTT Username
+			* mqtt pass 			- MQTT Password
+			* mqtt client 			- MQTT ClientID
+			* mqtt topic 			- MQTT Topic-Publish
+			* mqtt qos              - MQTT QoS Level (0 or 1 only, 0 default)
+			* mqtt tls              - Use MQTT over TLS (MQTTS) 1 = enable, 0 = disable
+			* mqtt json             - Report in JSON rather than CSV, 1 = enable JSON mode, 0 = disable and use .csv mode.
 
 		Microsoft Azure IoTHub Support:
-			mqtt azure_          	- MQTT Connection is for Azure IoT Hub, 1 = enable azure mode (disables basic MQTT)
-			mqtt azureconn_	mqtt azureconn HostName=mycloudserver.com;DeviceId=MNCM4xxxx;SharedAccessKey=8Z1Yid4K25AU0pXlGadH0iIR9U9or5DUmwwQ4I0MFo=
-			* SharedAccessKey: Supported
+			* mqtt azure          	- MQTT Connection is for Azure IoT Hub, 1 = enable azure mode (disables basic MQTT)
+			* mqtt azureconn 		- Input String command to configure the endpoint
 			* Requires the use of symmetric key authentication thus has a device connection string with the following pattern:
 				HostName=<IOT_HUB_NAME>;DeviceId=<DEVICE_NAME>;SharedAccessKey=<PRIMARY_OR_SECONDARY_KEY>
-				E.G.	mqtt azureconn HostName=mycloudserver.com;DeviceId=MNCM4xxxx;SharedAccessKey=8Z1Yid4K25AU0pXlGadH0iIR9U9or5DUmwwQ4I0MFo=
+				E.g:				"mqtt azureconn HostName=mycloudserver.com;DeviceId=MNCM4xxxx;SharedAccessKey=8Z1Yid4K25AU0pXlGadH0iIR9U9or5DUmwwQ4I0MFo=	"
 			* Reference: https://learn.microsoft.com/en-us/azure/iot-hub/create-connect-device?tabs=portal
 
